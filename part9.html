@@ -1,6 +1,6 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
+<!doctype html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8" />
     <title>Phaser - Making your first game, part 9</title>
 	<script type="text/javascript" src="js/phaser.min.js"></script>
@@ -84,11 +84,11 @@ function create() {
     //  We will enable physics for any star that is created in this group
     stars.enableBody = true;
 
-    //  Here we'll create 12 of them evenly spaced apart
-    for (var i = 0; i < 12; i++)
+    //  Here we'll create 64 of them randomly spaced (originally 12 spaced evenly apart)
+    for (var i = 0; i < 64; i++)
     {
         //  Create a star inside of the 'stars' group
-        var star = stars.create(i * 70, 0, 'star');
+        var star = stars.create(Math.floor((Math.random() * 770)), Math.floor((Math.random() * 60)), 'star');
 
         //  Let gravity do its thing
         star.body.gravity.y = 300;
@@ -102,7 +102,7 @@ function create() {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
-    
+
 }
 
 function update() {
@@ -138,7 +138,7 @@ function update() {
 
         player.frame = 4;
     }
-    
+
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown && player.body.touching.down)
     {
@@ -148,7 +148,7 @@ function update() {
 }
 
 function collectStar (player, star) {
-    
+
     // Removes the star from the screen
     star.kill();
 
