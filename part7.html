@@ -1,6 +1,6 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
+<!doctype html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8" />
     <title>Phaser - Making your first game, part 7</title>
 	<script type="text/javascript" src="js/phaser.min.js"></script>
@@ -66,7 +66,7 @@ function create() {
     game.physics.arcade.enable(player);
 
     //  Player physics properties. Give the little guy a slight bounce.
-    player.body.bounce.y = 0.2;
+    player.body.bounce.y = 0.9;
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
 
@@ -76,7 +76,7 @@ function create() {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
-    
+
 }
 
 function update() {
@@ -108,11 +108,11 @@ function update() {
 
         player.frame = 4;
     }
-    
+
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown && player.body.touching.down)
     {
-        player.body.velocity.y = -350;
+        player.body.velocity.y = -2000;
     }
 
 }
